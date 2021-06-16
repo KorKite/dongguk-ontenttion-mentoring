@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% if END_CLS == True %}
+<div class="pt-5 p-10">
+    <div class="container">
+		<table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5 pt-16">
+			<thead class="text-white">
+				<tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+					<th class="p-3 text-left">이름</th>
+					<th class="p-3 text-left">학번</th>
+					<th class="p-3 text-left" width="110px">집중도 요약</th>
+				</tr>
+				<tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+					<th class="p-3 text-left">이름</th>
+					<th class="p-3 text-left">학번</th>
+					<th class="p-3 text-left" width="110px">집중도 요약</th>
+				</tr>
+                <tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                  <th class="p-3 text-left">이름</th>
+                  <th class="p-3 text-left">학번</th>
+                  <th class="p-3 text-left" width="110px">집중도 요약</th>
+              </tr>
+                <tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                  <th class="p-3 text-left">이름</th>
+                  <th class="p-3 text-left">학번</th>
+                  <th class="p-3 text-left" width="110px">집중도 요약</th>
+              </tr>
+			</thead>
+			<tbody class="flex-1 sm:flex-none">
+                <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+					<td class="border-grey-light border hover:bg-gray-100 p-3">이름</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">학번</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400">집중도 요약</td>
+				</tr>
+            {% for i in att %}
+				<tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+					<td class="border-grey-light border hover:bg-gray-100 p-3">{{i.name}}</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{i.s_id}}</td>
+					<td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400">{{i.attention}}</td>
+				</tr>
+            {% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+
+
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
+</style>
+{% else %}
+<div class="pt-48 p-16 pb-48">
+    <p class="font-semibold	text-xl">
+    현재 수업 중입니다.
+</p>
+<p>
+    집중도 리포트는 완료 후에 생성됩니다.
+</p>
+    <a href="{{url_for('index')}}">
+        <p class="underline text-blue-700 pt-16 hover:text-blue-900">
+            홈페이지로 돌아가서 수업 관리하기
+        </p>
+    </a>
+</div>
+
+{% endif %}
+{% endblock main %}
